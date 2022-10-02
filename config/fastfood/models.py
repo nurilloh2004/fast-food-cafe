@@ -15,4 +15,14 @@ class User(models.Model):
         return self.name
 
 
+class Product(models.Model):
+    name = models.CharField(max_length=65)
+    price = models.IntegerField(max_length=65)
+    amount = models.IntegerField(max_length=65)
+    slug = models.SlugField()
+    date = models.DateField()
+
+    def __str__(self) -> str:
+        return self.name
+
 
