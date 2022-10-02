@@ -696,6 +696,8 @@ pre code {
   max-width: 50%;
 }
 
+
+
 .col-7 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 58.33333%;
@@ -4570,6 +4572,7 @@ input[type="button"].btn-block {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1rem 1rem;
+  
 }
 
 .navbar > .container,
