@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from .utils import *
@@ -9,10 +10,12 @@ class User(models.Model):
     phone = models.CharField(max_length=100, null=True)
     email = models.EmailField(null=True)
     profile_pic = models.ImageField(null=True)
-    release_date = models.DateField()
+    release_date = models.DateField(default=True)
 
     def __str__(self):
         return self.name
+
+
 
 
 class Product(models.Model):
@@ -24,5 +27,9 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+class Customers(models.Model):
+    customer = models.OneToOneField(Customer)
+    
 
 
