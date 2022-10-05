@@ -2,6 +2,8 @@ from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from .utils import *
+from django.core.mail import send_mail
+from config.settings import EMAIL_HOST_USER
 # Create your models here.
 
 class User(models.Model):
@@ -14,6 +16,19 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        password = self.password
+        self.set_password(password)
+        print("sending sms to email")
+        send_mail(
+            "Created user",
+            "Test message",
+            EMAIL_HOST_USER,
+            ["alharamin1004 @gmail.com"],
+            fail_silently=False
+        )
+        return super(User,self).save(*args, **kwargs)
 
 
 
